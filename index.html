@@ -20,7 +20,7 @@
             <div class="contacts">
                 <div class="profile">
                     <div class="profile-avatar">
-                        <img src="/img/avatar_io.jpg" alt="">
+                        <img :src="profile.avatar" alt="">
                         <span>{{ profile.name }}</span>
                     </div>
                     <div class="profile-options">
@@ -45,7 +45,14 @@
                     </div>
                 </div>
                 <ul class="contact-list">
-                    <li class="contact"></li>
+                    <li v-for="(contact, i) in contacts" class="contact">
+                        <img :src="contact.avatar" :alt="contact.name">
+                        <div class="contact-info">
+                            <h4>{{ contact.name }}</h4>
+                            <p>Ultimo Messaggio inviato</p>
+                            <div>12:00</div>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="chat">
