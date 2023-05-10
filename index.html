@@ -56,9 +56,20 @@
                 </ul>
             </div>
             <div class="chat">
-                <div class="contact-profile"></div>
-                <div class="messages"></div>
-                <div class="input-message"></div>
+                <div class="chat-contact">
+                    <img :src="contacts[0].avatar" :alt="contacts[0].name">
+                    <div class="chat-contact-info">
+                        <h4>{{ contacts[0].name }}</h4>
+                        <p>Ultimo accesso oggi alle 12</p>
+                    </div>
+                    <div class="chat-contact-options">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <div class="chat-messages"></div>
+                <div class="chat-input"></div>
             </div>
         </div>
     </div>
