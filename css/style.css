@@ -25,6 +25,7 @@ body {
 
 .container {
     width: 85%;
+    min-width: 1000px;
     height: 95%;
     display: grid;
     grid-template-columns: 34% 66%;
@@ -54,7 +55,7 @@ body {
     gap: 0.2rem;
 }
 
-.profile-avatar img {
+.profile-avatar>img {
     height: 50px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
@@ -67,12 +68,12 @@ body {
     align-items: center;
 }
 
-.profile i {
+.profile>i {
     font-size: 1.5rem;
     color: #B1B1B1;
 }
 
-.profile i:hover {
+.profile>i:hover {
     color: black;
 }
 
@@ -94,7 +95,7 @@ body {
     border-radius: 50%;
 }
 
-.notification-bell i {
+.notification-bell>i {
     font-size: 1.3rem;
     color: #8EDAFD;
 }
@@ -128,17 +129,61 @@ body {
     overflow: hidden;
 }
 
-.search-input label {
+.search-input>label {
     padding: 0.5rem;
     font-size: 0.8rem;
     color: grey;
     border-right: 0.5px solid rgb(200, 200, 200);
 }
 
-.search-input input {
+.search-input>input {
     width: 100%;
     padding: 0.5rem;
     border: unset;
+}
+
+.contact-list {
+    overflow-y: scroll;
+}
+
+.contact {
+    padding: 8px;
+    display: flex;
+    gap: 0.5rem;
+    border-top: 0.4px solid rgb(200, 200, 200);
+}
+
+.contact>img {
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+.contact-info {
+    padding-top: 4px;
+    flex: 1 0 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    position: relative;
+}
+
+.contact-info>h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.contact-info>p,
+.contact-info>div {
+    font-size: 0.8rem;
+    color: rgb(200, 200, 200);
+}
+
+.contact-info>div {
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .chat {
