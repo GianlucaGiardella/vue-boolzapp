@@ -62,20 +62,23 @@ body {
 }
 
 .profile-options,
-.chat-contact-options {
+.chat-contact-options,
+.chat-input {
     display: flex;
     gap: 1rem;
     align-items: center;
 }
 
 .profile-options>i,
-.chat-contact-options>i {
+.chat-contact-options>i,
+.chat-input>i {
     font-size: 1.5rem;
     color: #B1B1B1;
 }
 
 .profile-options>i:hover,
-.chat-contact-options>i:hover {
+.chat-contact-options>i:hover,
+.chat-input>i:hover {
     color: black;
 }
 
@@ -126,9 +129,7 @@ body {
     display: flex;
     align-items: center;
     background-color: white;
-    border: 0.5px solid rgb(200, 200, 200);
     border-radius: 0.2rem;
-    overflow: hidden;
 }
 
 .search-input>label {
@@ -228,5 +229,16 @@ body {
 
 .chat-input {
     height: 9%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     background-color: #F3EEEA;
+}
+
+.chat-input>input {
+    width: 75%;
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    border: unset;
+    border-radius: 0.3rem;
 }
