@@ -60,7 +60,7 @@
                     <img :src="contacts[0].avatar" :alt="contacts[0].name">
                     <div class="chat-contact-info">
                         <h4>{{ contacts[0].name }}</h4>
-                        <p>Ultimo accesso oggi alle 12</p>
+                        <p>Ultimo accesso oggi alle 12:00</p>
                     </div>
                     <div class="chat-contact-options">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -69,7 +69,11 @@
                     </div>
                 </div>
                 <div class="chat-messages"></div>
-                <div class="chat-input"></div>
+                <div class="chat-input">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
             </div>
         </div>
     </div>
