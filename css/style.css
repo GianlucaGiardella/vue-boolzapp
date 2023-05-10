@@ -222,9 +222,42 @@ body {
     color: rgb(180, 180, 180)
 }
 
-.chat-messages {
+.chat-messages-bg {
     flex: 1 0 0;
     background-image: url("../img/mine.jpg");
+}
+
+.chat-messages {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    gap: 0.5rem;
+}
+
+.message {
+    width: 40%;
+    padding: 0.7rem;
+    border-radius: 0.4rem;
+    position: relative;
+}
+
+.message-time {
+    font-size: 0.6rem;
+    color: rgb(200, 200, 200);
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+}
+
+.sent {
+    align-self: flex-end;
+    background-color: #D5F9BA;
+}
+
+.received {
+    align-self: flex-start;
+    background-color: white;
 }
 
 .chat-input {
