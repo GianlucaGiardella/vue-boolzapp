@@ -76,6 +76,40 @@ body {
     color: black;
 }
 
+.notification {
+    padding-inline: 20px;
+    height: 9%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #8EDAFD;
+}
+
+.notification-bell {
+    width: 45px;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.notification-bell i {
+    font-size: 1.3rem;
+    color: #8EDAFD;
+}
+
+.notification-activation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.8rem;
+}
+
+.notification-activation p {
+    text-decoration: underline;
+}
+
 .chat {
     height: 100%;
     background-color: red;
