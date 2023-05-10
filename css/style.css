@@ -25,11 +25,12 @@ body {
 
 .container {
     width: 85%;
-    min-width: 1000px;
+    min-width: 1200px;
     height: 95%;
     display: grid;
     grid-template-columns: 34% 66%;
     background-color: whitesmoke;
+    overflow: hidden;
 }
 
 .contacts {
@@ -37,10 +38,9 @@ body {
 }
 
 .profile,
-.contact-profile {
+.chat-contact {
     height: 8%;
     background-color: #EAEAEA;
-    border: 1px solid black;
 }
 
 .profile {
@@ -61,19 +61,21 @@ body {
     border-radius: 50%;
 }
 
-.profile-options {
-    flex: 0 0 1;
+.profile-options,
+.chat-contact-options {
     display: flex;
     gap: 1rem;
     align-items: center;
 }
 
-.profile>i {
+.profile-options>i,
+.chat-contact-options>i {
     font-size: 1.5rem;
     color: #B1B1B1;
 }
 
-.profile>i:hover {
+.profile-options>i:hover,
+.chat-contact-options>i:hover {
     color: black;
 }
 
@@ -143,6 +145,7 @@ body {
 }
 
 .contact-list {
+    height: 77%;
     overflow-y: scroll;
 }
 
@@ -182,11 +185,48 @@ body {
 
 .contact-info>div {
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 0;
 }
 
 .chat {
     height: 100%;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-contact {
+    padding-inline: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-inline-start: 1px solid rgb(200, 200, 200);
+}
+
+.chat-contact>img {
+    height: 50px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+.chat-contact-info {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.chat-contact-info>p {
+    font-size: 0.9rem;
+    color: rgb(180, 180, 180)
+}
+
+.chat-messages {
+    flex: 1 0 0;
+    background-image: url("../img/mine.jpg");
+}
+
+.chat-input {
+    height: 9%;
+    background-color: #F3EEEA;
 }
