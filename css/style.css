@@ -110,6 +110,37 @@ body {
     text-decoration: underline;
 }
 
+.search {
+    padding-inline: 10px;
+    height: 6%;
+    display: grid;
+    place-items: center;
+    background-color: #EAEAEA;
+}
+
+.search-input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 0.5px solid rgb(200, 200, 200);
+    border-radius: 0.2rem;
+    overflow: hidden;
+}
+
+.search-input label {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    color: grey;
+    border-right: 0.5px solid rgb(200, 200, 200);
+}
+
+.search-input input {
+    width: 100%;
+    padding: 0.5rem;
+    border: unset;
+}
+
 .chat {
     height: 100%;
     background-color: red;
