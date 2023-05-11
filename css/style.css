@@ -18,7 +18,7 @@ html {
     place-items: center;
     background-image: linear-gradient(to bottom,
             #009688 15%,
-            #DADBD4 15%);
+            #DBDBD2 15%);
 }
 
 .container {
@@ -27,7 +27,7 @@ html {
     height: 95%;
     display: grid;
     grid-template-columns: 34% 66%;
-    background-color: whitesmoke;
+    background-color: white;
     overflow: hidden;
 }
 
@@ -93,7 +93,7 @@ html {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background-color: #8EDAFD;
+    background-color: #8EDAFC;
 }
 
 .notification-bell {
@@ -126,7 +126,7 @@ html {
     padding-inline: 10px;
     display: grid;
     place-items: center;
-    background-color: #EAEAEA;
+    background-color: #FAFAFA;
 }
 
 .search-input {
@@ -134,6 +134,7 @@ html {
     display: flex;
     align-items: center;
     background-color: white;
+    border: 0.4px solid rgb(200, 200, 200);
     border-radius: 0.2rem;
 }
 
@@ -148,6 +149,7 @@ html {
     width: 100%;
     padding: 0.5rem;
     border: unset;
+    border-radius: 0.2rem;
 }
 
 .contact-list {
@@ -273,4 +275,8 @@ html {
     padding: 0.7rem;
     border: unset;
     border-radius: 0.3rem;
+}
+
+.active-chat {
+    background-color: #E9EBEB;
 }
