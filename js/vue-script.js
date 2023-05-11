@@ -219,7 +219,7 @@ const app = Vue.createApp({
     computed: {
         filteredContacts() {
             let namesArr = [];
-            namesArr = this.contacts.filter(contact => contact.name.includes(this.inputName))
+            namesArr = this.contacts.filter(contact => contact.name.toLowerCase().includes(this.inputName.toLowerCase()))
             return namesArr;
         }
     }
