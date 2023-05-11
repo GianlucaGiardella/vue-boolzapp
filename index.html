@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <ul class="contact-list">
-                    <li v-for="(contact, i) in contacts" class="contact" :class="{'active-chat': i === activeChat}" @click="activeChat = i">
+                    <li v-for="(contact, i) in contacts" class="contact" :class="{'active-chat': i === activeChat}" @click="activeChat = i" :key="i">
                         <img :src="contact.avatar" :alt="contact.name">
                         <div class="contact-info">
                             <span class="text-overflow">{{ contact.name }}</span>
@@ -70,13 +70,13 @@
                 </div>
                 <div class="chat-messages-bg">
                     <div class="chat-messages">
-                        <div v-for="message in contacts[activeChat].messages" class="message" :class="message.status">{{
+                        <div v-for="(message, i) in contacts[activeChat].messages" class="message" :class="message.status" :key="i">{{
                             message.text }}<span class="message-time">{{ messageTime(message) }}</span></div>
                     </div>
                 </div>
                 <div class="chat-input">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
