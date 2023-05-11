@@ -172,6 +172,7 @@ const app = Vue.createApp({
 
             activeChat: 0,
             newMessage: "",
+            inputName: "",
         }
     },
     methods: {
@@ -214,8 +215,14 @@ const app = Vue.createApp({
 
             this.contacts[this.activeChat].messages.push(messageObj);
         }
-
     },
+    computed: {
+        filteredContacts() {
+            let namesArr = [];
+            namesArr = this.contacts.filter(contact => contact.name.includes(this.inputName))
+            return namesArr;
+        }
+    }
 });
 
 app.mount("#app");

@@ -41,11 +41,11 @@
                 <div class="search">
                     <div class="search-input">
                         <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
-                        <input type="text" id="search" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" id="search" placeholder="Cerca o inizia una nuova chat" v-model="inputName">
                     </div>
                 </div>
                 <ul class="contact-list">
-                    <li v-for="(contact, i) in contacts" class="contact" :class="{'active-chat': i === activeChat}" @click="activeChat = i" :key="i">
+                    <li v-for="(contact, i) in filteredContacts" class="contact" :class="{'active-chat': i === activeChat}" @click="activeChat = i" :key="i">
                         <img :src="contact.avatar" :alt="contact.name">
                         <div class="contact-info">
                             <span class="text-overflow">{{ contact.name }}</span>
