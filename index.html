@@ -14,14 +14,14 @@
     <title>Boolzapp</title>
 </head>
 
-<body>
+<body class="container-bg">
     <div id="app">
         <div class="container">
             <div class="contacts">
                 <div class="profile">
                     <div class="profile-avatar">
-                        <img :src="profile.avatar" alt="">
-                        <span>{{ profile.name }}</span>
+                        <img :src="profile.avatar" :alt="profile.name">
+                        <span class="text-overflow">{{ profile.name }}</span>
                     </div>
                     <div class="profile-options">
                         <i class="fa-solid fa-circle-notch"></i>
@@ -48,10 +48,10 @@
                     <li v-for="(contact, i) in contacts" class="contact">
                         <img :src="contact.avatar" :alt="contact.name">
                         <div class="contact-info">
-                            <h4>{{ contact.name }}</h4>
-                            <p>Ultimo Messaggio inviato</p>
-                            <div>12:00</div>
+                            <span class="text-overflow">{{ contact.name }}</span>
+                            <p class="text-overflow">Ultimo Messaggio inviato</p>
                         </div>
+                        <div class="contact-last-message-time">12:00</div>
                     </li>
                 </ul>
             </div>
@@ -59,8 +59,8 @@
                 <div class="chat-contact">
                     <img :src="contacts[0].avatar" :alt="contacts[0].name">
                     <div class="chat-contact-info">
-                        <h4>{{ contacts[0].name }}</h4>
-                        <p>Ultimo accesso oggi alle 12:00</p>
+                        <span class="text-overflow">{{ contacts[0].name }}</span>
+                        <p class="text-overflow">Ultimo accesso oggi alle 12:00</p>
                     </div>
                     <div class="chat-contact-options">
                         <i class="fa-solid fa-magnifying-glass"></i>
