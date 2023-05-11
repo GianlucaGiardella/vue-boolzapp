@@ -31,6 +31,10 @@ html {
     overflow: hidden;
 }
 
+.container:hover {
+    cursor: pointer;
+}
+
 .contacts,
 .chat {
     height: 100%;
