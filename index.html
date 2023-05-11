@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <ul class="contact-list">
-                    <li v-for="(contact, i) in contacts" class="contact">
+                    <li v-for="(contact, i) in contacts" class="contact" :class="{'active-chat': i === activeChat}" @click="activeChat = i">
                         <img :src="contact.avatar" :alt="contact.name">
                         <div class="contact-info">
                             <span class="text-overflow">{{ contact.name }}</span>
@@ -57,9 +57,9 @@
             </div>
             <div class="chat">
                 <div class="chat-contact">
-                    <img :src="contacts[0].avatar" :alt="contacts[0].name">
+                    <img :src="contacts[activeChat].avatar" :alt="contacts[activeChat].name">
                     <div class="chat-contact-info">
-                        <span class="text-overflow">{{ contacts[0].name }}</span>
+                        <span class="text-overflow">{{ contacts[activeChat].name }}</span>
                         <p class="text-overflow">Ultimo accesso oggi alle 12:00</p>
                     </div>
                     <div class="chat-contact-options">
@@ -70,7 +70,7 @@
                 </div>
                 <div class="chat-messages-bg">
                     <div class="chat-messages">
-                        <div v-for="(message, i) in contacts[0].messages" class="message" :class="message.status">{{
+                        <div v-for="(message, i) in contacts[activeChat].messages" class="message" :class="message.status">{{
                             message.text }}<span class="message-time">15:00</span></div>
                     </div>
                 </div>

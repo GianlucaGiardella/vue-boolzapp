@@ -169,6 +169,8 @@ const app = Vue.createApp({
                     ],
                 },
             ],
+
+            activeChat: 0,
         }
     },
 });
