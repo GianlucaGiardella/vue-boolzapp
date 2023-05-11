@@ -199,7 +199,21 @@ const app = Vue.createApp({
 
             this.contacts[this.activeChat].messages.push(messageObj);
             this.newMessage = "";
+            setTimeout(this.receiveMessage, 1000)
         },
+
+        receiveMessage() {
+            const localDate = new Date().toLocaleDateString('en-GB');
+            const localTime = new Date().toLocaleTimeString();
+
+            const messageObj = {
+                date: `${localDate} ${localTime}`,
+                text: "ok",
+                status: "received"
+            };
+
+            this.contacts[this.activeChat].messages.push(messageObj);
+        }
 
     },
 });
