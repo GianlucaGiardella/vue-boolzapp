@@ -70,8 +70,8 @@
                 </div>
                 <div class="chat-messages-bg">
                     <div class="chat-messages">
-                        <div v-for="(message, i) in contacts[activeChat].messages" class="message" :class="message.status">{{
-                            message.text }}<span class="message-time">15:00</span></div>
+                        <div v-for="message in contacts[activeChat].messages" class="message" :class="message.status">{{
+                            message.text }}<span class="message-time">{{ messageTime(message) }}</span></div>
                     </div>
                 </div>
                 <div class="chat-input">

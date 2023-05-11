@@ -175,10 +175,13 @@ const app = Vue.createApp({
     },
     methods: {
         lastMessage(contact) {
-            return contact.messages[contact.messages.length -1].text;
+            return contact.messages[contact.messages.length - 1].text;
         },
-        lastMessageTime(contact){
-            return contact.messages[contact.messages.length -1].date.slice(0, 10);
+        lastMessageTime(contact) {
+            return contact.messages[contact.messages.length - 1].date.slice(0, 10);
+        },
+        messageTime(message) {
+            return message.date.slice(11, 16);
         }
     },
 });
