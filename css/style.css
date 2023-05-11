@@ -43,16 +43,14 @@ li {
 .profile,
 .chat-contact {
     flex: 0 0 8%;
-    background-color: #EAEAEA;
-}
-
-.profile {
     padding-inline: 10px;
     display: flex;
+    background-color: #EAEAEA;
 }
 
 .profile-avatar {
     flex: 1 0 0;
+    min-width: 0;
     display: flex;
     align-items: center;
     gap: 0.2rem;
@@ -62,6 +60,12 @@ li {
     height: 50px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
+}
+
+.text-overflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .profile-options,
@@ -167,13 +171,13 @@ li {
 }
 
 .contact-info {
-    padding-top: 4px;
     flex: 1 0 0;
+    min-width: 0;
     height: 100%;
+    padding-top: 4px;
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
-    position: relative;
 }
 
 .contact-info>h4 {
@@ -182,15 +186,13 @@ li {
 }
 
 .contact-info>p,
-.contact-info>div {
+.contact-last-message-time {
     font-size: 0.8rem;
     color: rgb(200, 200, 200);
 }
 
-.contact-info>div {
-    position: absolute;
-    right: 10px;
-    top: 0;
+.contact-last-message-time { 
+    padding: 0.4rem 0 0 2rem;
 }
 
 .chat {
@@ -198,8 +200,6 @@ li {
 }
 
 .chat-contact {
-    padding-inline: 10px;
-    display: flex;
     align-items: center;
     gap: 0.5rem;
 }
@@ -212,6 +212,7 @@ li {
 
 .chat-contact-info {
     flex: 1 0 0;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
