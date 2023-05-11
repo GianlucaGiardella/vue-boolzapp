@@ -173,6 +173,11 @@ const app = Vue.createApp({
             activeChat: 0,
         }
     },
+    methods: {
+        lastMessage(contact) {
+            return contact.messages[contact.messages.length -1].text;
+        }
+    },
 });
 
 app.mount("#app");
