@@ -12,10 +12,15 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="js/vue-script.js" defer></script>
     <title>Boolzapp</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container-bg" id="app">
+    <div class="container-bg" id="app" v-cloak>
         <div class="container">
             <div class="contacts">
                 <div class="profile">
@@ -45,13 +50,14 @@
                     </div>
                 </div>
                 <ul class="contact-list">
-                    <li v-for="(contact, i) in filteredContacts" class="contact" :class="{'active-chat': i === activeChat}" @click="activeChat = i" :key="i">
+                    <li v-for="(contact, i) in filteredContacts" class="contact"
+                        :class="{'active-chat': contacts.indexOf(contact) === activeChat}" @click="setActiveChat(contact)" :key="i">
                         <img :src="contact.avatar" :alt="contact.name">
                         <div class="contact-info">
                             <span class="text-overflow">{{ contact.name }}</span>
                             <p class="text-overflow">{{ lastMessage(contact) }}</p>
                         </div>
-                        <div class="contact-last-message-time">{{ lastMessageTime(contact) }}</div>
+                        <div class="contact-last-message-time">{{ lastMessageDate(contact) }}</div>
                     </li>
                 </ul>
             </div>
@@ -60,7 +66,8 @@
                     <img :src="contacts[activeChat].avatar" :alt="contacts[activeChat].name">
                     <div class="chat-contact-info">
                         <span class="text-overflow">{{ contacts[activeChat].name }}</span>
-                        <p class="text-overflow">Ultimo accesso oggi alle 12:00</p>
+                        <p class="text-overflow">Ultimo accesso oggi alle {{
+                            messageTime(contacts[activeChat].messages[contacts[activeChat].messages.length -1]) }}</p>
                     </div>
                     <div class="chat-contact-options">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -70,13 +77,15 @@
                 </div>
                 <div class="chat-messages-bg">
                     <div class="chat-messages">
-                        <div v-for="(message, i) in contacts[activeChat].messages" class="message" :class="message.status" :key="i">{{
+                        <div v-for="(message, i) in contacts[activeChat].messages" class="message"
+                            :class="message.status" :key="i">{{
                             message.text }}<span class="message-time">{{ messageTime(message) }}</span></div>
                     </div>
                 </div>
                 <div class="chat-input">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage"
+                        @keyup.enter="sendMessage(activeChat)">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>

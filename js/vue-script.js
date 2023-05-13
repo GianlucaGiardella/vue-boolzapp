@@ -169,18 +169,22 @@ const app = Vue.createApp({
     },
     methods: {
         lastMessage(contact) {
-            return contact.messages[contact.messages.length - 1].text;
+            return contact.messages[contact.messages.length -1].text;
         },
 
-        lastMessageTime(contact) {
-            return contact.messages[contact.messages.length - 1].date.slice(0, 10);
+        lastMessageDate(contact) {
+            return contact.messages[contact.messages.length -1].date.slice(0, -9);
         },
 
         messageTime(message) {
-            return message.date.slice(11, 16);
+            return message.date.slice(11, -3);
         },
 
-        sendMessage() {
+        setActiveChat(contact) {
+            this.activeChat = this.contacts.indexOf(contact);
+        },
+
+        sendMessage(activeChat) {
             const localDate = new Date().toLocaleDateString('en-GB');
             const localTime = new Date().toLocaleTimeString();
 
@@ -190,9 +194,9 @@ const app = Vue.createApp({
                 status: "sent"
             };
 
-            this.contacts[this.activeChat].messages.push(messageObj);
+            this.contacts[activeChat].messages.push(messageObj);
             this.newMessage = "";
-            setTimeout(this.receiveMessage, 1000)
+            setTimeout(this.receiveMessage, 1000);
         },
 
         receiveMessage() {
@@ -204,9 +208,8 @@ const app = Vue.createApp({
                 text: "Ok",
                 status: "received"
             };
-
             this.contacts[this.activeChat].messages.push(messageObj);
-        }
+        },
     },
     computed: {
         filteredContacts() {
