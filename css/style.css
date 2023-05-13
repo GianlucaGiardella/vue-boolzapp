@@ -142,6 +142,10 @@ html {
     border-radius: 0.2rem;
 }
 
+.search-input:focus-within {
+    outline: auto;
+}
+
 .search-input>label {
     padding: 0.5rem;
     font-size: 0.8rem;
@@ -154,6 +158,10 @@ html {
     padding: 0.5rem;
     border: unset;
     border-radius: 0.2rem;
+}
+
+.search-input>input {
+    outline: none;
 }
 
 .contact-list {
@@ -247,6 +255,7 @@ html {
     padding: 0.7rem 0.7rem 0.8rem;
     border-radius: 0.4rem;
     position: relative;
+    word-wrap: break-word;
 }
 
 .message-time {
