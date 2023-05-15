@@ -67,8 +67,9 @@
                     <img :src="contacts[activeChat].avatar" :alt="contacts[activeChat].name">
                     <div class="chat-contact-info">
                         <span class="text-overflow">{{ contacts[activeChat].name }}</span>
-                        <p class="text-overflow">Ultimo accesso oggi alle {{
+                        <p v-if="contacts[activeChat].messages.length > 0" class="text-overflow">Ultimo accesso oggi alle {{
                             messageTime(contacts[activeChat].messages[contacts[activeChat].messages.length -1]) }}</p>
+                        <p v-else></p>
                     </div>
                     <div class="chat-contact-options">
                         <i class="fa-solid fa-magnifying-glass"></i>

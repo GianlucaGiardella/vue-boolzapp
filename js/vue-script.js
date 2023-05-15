@@ -190,15 +190,23 @@ const app = Vue.createApp({
     },
     methods: {
         lastMessage(contact) {
-            return contact.messages[contact.messages.length -1].text;
+            if (contact.messages.length > 0) {
+                return contact.messages[contact.messages.length - 1].text;
+            }
         },
 
         lastMessageDate(contact) {
-            return contact.messages[contact.messages.length -1].date.slice(0, -9);
+            if (contact.messages.length > 0) {
+                return contact.messages[contact.messages.length - 1].date.slice(0, - 9);
+            } else {
+                return "Offline";
+            }
         },
 
         messageTime(message) {
-            return message.date.slice(11, -3);
+            if (message) {
+                return message.date.slice(11, - 3);
+            }
         },
 
         setActiveChat(contact) {
