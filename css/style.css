@@ -243,10 +243,10 @@ html {
 
 .chat-messages {
     width: 80%;
-    margin: 0 auto;
+    margin: 4rem auto 0;
     display: flex;
     flex-flow: column;
-    gap: 0.7rem;
+    gap: 1.5rem;
 }
 
 .message {
@@ -260,10 +260,34 @@ html {
 
 .message-time {
     font-size: 0.7rem;
-    color: rgb(200, 200, 200);
+    color: rgb(145, 145, 145);
     position: absolute;
-    right: 5px;
-    bottom: 3px;
+    right: 2px;
+    bottom: 1px;
+}
+
+.chat-message-dropdown {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 109%;
+    z-index: 1;
+    min-width: 50px;
+    color: black;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.chat-message-dropdown div {
+    padding: 6px 8px;
+}
+
+.chat-message-dropdown div:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
 }
 
 .sent {

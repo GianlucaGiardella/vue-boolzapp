@@ -51,7 +51,8 @@
                 </div>
                 <ul class="contact-list">
                     <li v-for="(contact, i) in filteredContacts" class="contact"
-                        :class="{'active-chat': contacts.indexOf(contact) === activeChat}" @click="setActiveChat(contact)" :key="i">
+                        :class="{'active-chat': contacts.indexOf(contact) === activeChat}"
+                        @click="setActiveChat(contact)" :key="i">
                         <img :src="contact.avatar" :alt="contact.name">
                         <div class="contact-info">
                             <span class="text-overflow">{{ contact.name }}</span>
@@ -78,8 +79,15 @@
                 <div class="chat-messages-bg">
                     <div class="chat-messages">
                         <div v-for="(message, i) in contacts[activeChat].messages" class="message"
-                            :class="message.status" :key="i">{{
-                            message.text }}<span class="message-time">{{ messageTime(message) }}</span></div>
+                            :class="message.status" :key="i">{{ message.text }}
+                            <span class="message-time">{{ messageTime(message) }}
+                                    <i class="fa-solid fa-chevron-right" @click="message.optionsFlag = !message.optionsFlag"></i>
+                                <div class="chat-message-dropdown" :class="{show: message.optionsFlag}">
+                                    <div @click="deleteMessage(i)">Elimina</div>
+                                    <div>Informazioni</div>
+                                </div>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="chat-input">

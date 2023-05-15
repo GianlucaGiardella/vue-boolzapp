@@ -14,17 +14,20 @@ const app = Vue.createApp({
                         {
                             date: "10/01/2023 15:30:55",
                             text: "Hai portato a spasso il cane?",
-                            status: "sent"
+                            status: "sent",
+                            optionsFlag: false
                         },
                         {
                             date: "10/01/2023 15:50:00",
-                            text: "Ricordati di stendere i panni",
-                            status: "sent"
+                            text: "Ricordati di stendere i panni vnriovhriop",
+                            status: "sent",
+                            optionsFlag: false
                         },
                         {
                             date: "10/01/2023 16:15:22",
-                            text: "Tutto fatto!",
-                            status: "received"
+                            text: "Tutto fatto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor corporis, quod error debitis explicabo voluptates. Fugiat doloremque quae asperiores consectetur impedit quis temporibus, dicta, voluptatum minima accusamus accusantium a quia!",
+                            status: "received",
+                            optionsFlag: false
                         }
                     ],
                 },
@@ -35,17 +38,20 @@ const app = Vue.createApp({
                         {
                             date: "20/03/2023 16:30:00",
                             text: "Ciao come stai?",
-                            status: "sent"
+                            status: "sent",
+                            optionsFlag: false
                         },
                         {
                             date: "20/03/2023 16:30:55",
                             text: "Bene grazie! Stasera ci vediamo?",
-                            status: "received"
+                            status: "received",
+                            optionsFlag: false
                         },
                         {
                             date: "20/03/2023 16:35:00",
                             text: "Mi piacerebbe ma devo andare a fare la spesa.",
-                            status: "sent"
+                            status: "sent",
+                            optionsFlag: false
                         }
                     ],
                 },
@@ -56,17 +62,20 @@ const app = Vue.createApp({
                         {
                             date: "28/03/2023 10:10:40",
                             text: "La Marianna va in campagna",
-                            status: "received"
+                            status: "received",
+                            optionsFlag: false
                         },
                         {
                             date: "28/03/2023 10:20:10",
                             text: "Sicuro di non aver sbagliato chat?",
-                            status: "sent"
+                            status: "sent",
+                            optionsFlag: false
                         },
                         {
                             date: "28/03/2023 16:15:22",
                             text: "Ah scusa!",
-                            status: "received"
+                            status: "received",
+                            optionsFlag: false
                         }
                     ],
                 },
@@ -77,12 +86,14 @@ const app = Vue.createApp({
                         {
                             date: "10/01/2023 15:30:55",
                             text: "Lo sai che ha aperto una nuova pizzeria?",
-                            status: "sent"
+                            status: "sent",
+                            optionsFlag: false
                         },
                         {
                             date: "10/01/2023 15:50:00",
                             text: "Si, ma preferirei andare al cinema",
-                            status: "received"
+                            status: "received",
+                            optionsFlag: false
                         }
                     ],
                 },
@@ -93,12 +104,14 @@ const app = Vue.createApp({
                         {
                             date: "10/01/2023 15:30:55",
                             text: "Ricordati di chiamare la nonna",
-                            status: "sent"
+                            status: "sent",
+                            optionsFlag: false
                         },
                         {
                             date: "10/01/2023 15:50:00",
                             text: "Va bene, stasera la sento",
-                            status: "received"
+                            status: "received",
+                            optionsFlag: false
                         }
                     ],
                 },
@@ -109,17 +122,20 @@ const app = Vue.createApp({
                         {
                             date: "10/01/2023 15:30:55",
                             text: "Ciao Lara, hai novità?",
-                            status: "sent"
+                            status: "sent",
+                            optionsFlag: false
                         },
                         {
                             date: "10/01/2023 15:50:00",
                             text: "Non ancora",
-                            status: "received"
+                            status: "received",
+                            optionsFlag: false
                         },
                         {
                             date: "10/01/2023 15:51:00",
                             text: "Nessuna nuova, buona nuova",
-                            status: "sent"
+                            status: "sent",
+                            optionsFlag: false
                         }
                     ],
                 },
@@ -130,12 +146,14 @@ const app = Vue.createApp({
                         {
                             date: "10/01/2023 15:30:55",
                             text: "Fai gli auguri a Martina che è il suo compleanno!",
-                            status: "sent"
+                            status: "sent",
+                            optionsFlag: false
                         },
                         {
                             date: "10/01/2023 15:50:00",
                             text: "Grazie per avermelo ricordato, le scrivo subito!",
-                            status: "received"
+                            status: "received",
+                            optionsFlag: false
                         }
                     ],
                 },
@@ -146,17 +164,20 @@ const app = Vue.createApp({
                         {
                             date: "10/01/2023 15:30:55",
                             text: "Ciao, andiamo a mangiare la pizza stasera?",
-                            status: "received"
+                            status: "received",
+                            optionsFlag: false
                         },
                         {
                             date: "10/01/2023 15:50:00",
                             text: "No, l\'ho già mangiata ieri, ordiniamo sushi!",
-                            status: "sent"
+                            status: "sent",
+                            optionsFlag: false
                         },
                         {
                             date: "10/01/2023 15:51:00",
                             text: "OK!!",
-                            status: "received"
+                            status: "received",
+                            optionsFlag: false
                         }
                     ],
                 }
@@ -191,7 +212,8 @@ const app = Vue.createApp({
             const messageObj = {
                 date: `${localDate} ${localTime}`,
                 text: this.newMessage,
-                status: "sent"
+                status: "sent",
+                optionsFlag: false
             };
 
             this.contacts[activeChat].messages.push(messageObj);
@@ -206,10 +228,15 @@ const app = Vue.createApp({
             const messageObj = {
                 date: `${localDate} ${localTime}`,
                 text: "Ok",
-                status: "received"
+                status: "received",
+                optionsFlag: false
             };
             this.contacts[this.activeChat].messages.push(messageObj);
         },
+
+        deleteMessage(i) {
+            this.contacts[this.activeChat].messages.splice(i, 1)
+        }
     },
     computed: {
         filteredContacts() {
