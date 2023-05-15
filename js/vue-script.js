@@ -19,13 +19,13 @@ const app = Vue.createApp({
                         },
                         {
                             date: "10/01/2023 15:50:00",
-                            text: "Ricordati di stendere i panni vnriovhriop",
+                            text: "Ricordati di stendere i panni",
                             status: "sent",
                             optionsFlag: false
                         },
                         {
                             date: "10/01/2023 16:15:22",
-                            text: "Tutto fatto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor corporis, quod error debitis explicabo voluptates. Fugiat doloremque quae asperiores consectetur impedit quis temporibus, dicta, voluptatum minima accusamus accusantium a quia!",
+                            text: "Tutto fatto!",
                             status: "received",
                             optionsFlag: false
                         }
