@@ -213,33 +213,25 @@ const app = Vue.createApp({
             this.activeChat = this.contacts.indexOf(contact);
         },
 
-        sendMessage(activeChat) {
-            const localDate = new Date().toLocaleDateString('en-GB');
-            const localTime = new Date().toLocaleTimeString();
-
-            const messageObj = {
-                date: `${localDate} ${localTime}`,
-                text: this.newMessage,
-                status: "sent",
-                optionsFlag: false
-            };
-
-            this.contacts[activeChat].messages.push(messageObj);
+        sendInputMessage() {
+            const contact = this.contacts[this.activeChat];
+            this.sendMessage(this.newMessage, "sent", contact)
             this.newMessage = "";
-            setTimeout(this.receiveMessage, 1000);
+            setTimeout(() => this.sendMessage("Ok", "received", contact), 1000);
         },
 
-        receiveMessage() {
+        sendMessage(message, status, contact) {
             const localDate = new Date().toLocaleDateString('en-GB');
             const localTime = new Date().toLocaleTimeString();
 
             const messageObj = {
                 date: `${localDate} ${localTime}`,
-                text: "Ok",
-                status: "received",
+                text: message,
+                status: status,
                 optionsFlag: false
             };
-            this.contacts[this.activeChat].messages.push(messageObj);
+
+            contact.messages.push(messageObj);
         },
 
         deleteMessage(i) {
