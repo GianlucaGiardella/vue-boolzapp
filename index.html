@@ -51,7 +51,7 @@
                 </div>
                 <ul class="contact-list">
                     <li v-for="(contact, i) in filteredContacts" class="contact"
-                        :class="{'active-chat': contacts.indexOf(contact) === activeChat}"
+                        :class="{'active-chat': contact === contacts[activeChat]}"
                         @click="setActiveChat(contact)" :key="i">
                         <img :src="contact.avatar" :alt="contact.name">
                         <div class="contact-info">
@@ -94,7 +94,7 @@
                 <div class="chat-input">
                     <i class="fa-regular fa-face-smile"></i>
                     <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage"
-                        @keyup.enter="sendMessage(activeChat)">
+                        @keyup.enter="sendInputMessage">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
