@@ -1,105 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="js/vue-script.js" defer></script>
     <title>Boolzapp</title>
     <style>
-        [v-cloak] {
-            display: none;
-        }
+      [v-cloak] {
+        display: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container-bg" id="app" v-cloak>
-        <div class="container">
-            <div class="contacts">
-                <div class="profile">
-                    <div class="profile-avatar">
-                        <img :src="profile.avatar" :alt="profile.name">
-                        <span class="text-overflow">{{ profile.name }}</span>
-                    </div>
-                    <div class="profile-options">
-                        <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-                <div class="notification">
-                    <div class="notification-bell">
-                        <i class="fa-solid fa-bell-slash"></i>
-                    </div>
-                    <div class="notification-activation">
-                        <h4>Ricevi notifiche di nuovi messaggi</h4>
-                        <p>Attiva notifiche desktop</p>
-                    </div>
-                </div>
-                <div class="search">
-                    <div class="search-input">
-                        <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
-                        <input type="text" id="search" placeholder="Cerca o inizia una nuova chat" v-model="inputName">
-                    </div>
-                </div>
-                <ul class="contact-list">
-                    <li v-for="(contact, i) in filteredContacts" class="contact"
-                        :class="{'active-chat': contact === contacts[activeChat]}"
-                        @click="setActiveChat(contact)" :key="i">
-                        <img :src="contact.avatar" :alt="contact.name">
-                        <div class="contact-info">
-                            <span class="text-overflow">{{ contact.name }}</span>
-                            <p class="text-overflow">{{ lastMessage(contact) }}</p>
-                        </div>
-                        <div class="contact-last-message-time">{{ lastMessageDate(contact) }}</div>
-                    </li>
-                </ul>
+      <div class="container">
+        <div class="contacts">
+          <div class="profile">
+            <div class="profile-avatar">
+              <img :src="profile.avatar" :alt="profile.name" />
+              <span class="text-overflow">{{ profile.name }}</span>
             </div>
-            <div class="chat">
-                <div class="chat-contact">
-                    <img :src="contacts[activeChat].avatar" :alt="contacts[activeChat].name">
-                    <div class="chat-contact-info">
-                        <span class="text-overflow">{{ contacts[activeChat].name }}</span>
-                        <p v-if="contacts[activeChat].messages.length > 0" class="text-overflow">Ultimo accesso oggi alle {{
-                            messageTime(contacts[activeChat].messages[contacts[activeChat].messages.length -1]) }}</p>
-                        <p v-else></p>
-                    </div>
-                    <div class="chat-contact-options">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-                <div class="chat-messages-bg">
-                    <div class="chat-messages">
-                        <div v-for="(message, i) in contacts[activeChat].messages" class="message"
-                            :class="message.status" :key="i">{{ message.text }}
-                            <span class="message-time">{{ messageTime(message) }}
-                                    <i class="fa-solid fa-chevron-right" @click="message.optionsFlag = !message.optionsFlag"></i>
-                                <div class="chat-message-dropdown" :class="{show: message.optionsFlag}">
-                                    <div @click="deleteMessage(i)">Elimina</div>
-                                    <div>Informazioni</div>
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="chat-input">
-                    <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage"
-                        @keyup.enter="sendInputMessage">
-                    <i class="fa-solid fa-microphone"></i>
-                </div>
+            <div class="profile-options">
+              <i class="fa-solid fa-circle-notch"></i>
+              <i class="fa-solid fa-message"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
+          </div>
+          <div class="notification">
+            <div class="notification-bell">
+              <i class="fa-solid fa-bell-slash"></i>
+            </div>
+            <div class="notification-activation">
+              <h4>Ricevi notifiche di nuovi messaggi</h4>
+              <p>Attiva notifiche desktop</p>
+            </div>
+          </div>
+          <div class="search">
+            <div class="search-input">
+              <label for="search"
+                ><i class="fa-solid fa-magnifying-glass"></i
+              ></label>
+              <input
+                type="text"
+                id="search"
+                placeholder="Cerca o inizia una nuova chat"
+                v-model="inputName"
+              />
+            </div>
+          </div>
+          <ul class="contact-list">
+            <li
+              v-for="(contact, i) in filteredContacts"
+              class="contact"
+              :class="{'active-chat': contact === contacts[activeChat]}"
+              @click="setActiveChat(contact)"
+              :key="i"
+            >
+              <img :src="contact.avatar" :alt="contact.name" />
+              <div class="contact-info">
+                <span class="text-overflow">{{ contact.name }}</span>
+                <p class="text-overflow">{{ lastMessage(contact) }}</p>
+              </div>
+              <div class="contact-last-message-time">
+                {{ lastMessageDate(contact) }}
+              </div>
+            </li>
+          </ul>
         </div>
+        <div class="chat">
+          <div class="chat-contact">
+            <img
+              :src="contacts[activeChat].avatar"
+              :alt="contacts[activeChat].name"
+            />
+            <div class="chat-contact-info">
+              <span class="text-overflow">{{ contacts[activeChat].name }}</span>
+              <p
+                v-if="contacts[activeChat].messages.length > 0"
+                class="text-overflow"
+              >
+                Ultimo accesso oggi alle {{
+                messageTime(contacts[activeChat].messages[contacts[activeChat].messages.length
+                -1]) }}
+              </p>
+              <p v-else></p>
+            </div>
+            <div class="chat-contact-options">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-paperclip"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+          </div>
+          <div class="chat-messages-bg">
+            <div class="chat-messages">
+              <div
+                v-for="(message, i) in contacts[activeChat].messages"
+                class="message"
+                :class="message.status"
+                :key="i"
+              >
+                {{ message.text }}
+                <span class="message-time"
+                  >{{ messageTime(message) }}
+                  <i
+                    class="fa-solid fa-chevron-right"
+                    @click="message.optionsFlag = !message.optionsFlag"
+                  ></i>
+                  <div
+                    class="chat-message-dropdown"
+                    :class="{show: message.optionsFlag}"
+                  >
+                    <div @click="deleteMessage(i)">Elimina</div>
+                    <div>Informazioni</div>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="chat-input">
+            <i class="fa-regular fa-face-smile"></i>
+            <input
+              type="text"
+              placeholder="Scrivi un messaggio"
+              v-model="newMessage"
+              @keyup.enter="sendInputMessage"
+            />
+            <i class="fa-solid fa-microphone"></i>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
